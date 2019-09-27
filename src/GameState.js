@@ -41,13 +41,34 @@ class GameState {
     }
     initializeEvents() {
         window.addEventListener('keydown', (e) => {
+            this.isKeyDown = true
             this.direction = e.key.replace('Arrow', '')
+        })
+        window.addEventListener('keyup',() => {
+            this.isKeyDown = false
         })
     }
     getScore() {
         return this.score;
     }
+    handleTimerForKeyPress(){
+        if(this.isKeyDown) {
+            if (this.tickTimer > 200) {
+                this.tickTimer -= 200
+                this.timerChanged = true
+                this.initializeTimer()
+            }
+        } else {
+            if(this.timerChanged) {
+                this.tickTimer = this.backupTick
+                this.initializeTimer()
+                this.timerChanged = false
+            }
+        }
+
+    }
     updateBoard() {
+        this.handleTimerForKeyPress()
         let width = this.boardConfiguration.width
         let height = this.boardConfiguration.height
         this.snake.currentPosition.map((val, ind) => {
