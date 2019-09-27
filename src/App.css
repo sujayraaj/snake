@@ -20,3 +20,51 @@
 .App-link {
   color: #09d3ac;
 }
+
+.cell {
+  border: 1px solid #eee;
+  box-sizing: border-box;
+}
+
+.snake.cell {
+  background: green;
+}
+
+.snake.head.cell {
+  background: red;
+}
+
+.fruit.fruit1 {
+  background: yellow;
+  border-color: blue;
+}
+
+.fruit.fruit2 {
+  background: purple;
+  border-color: blue;
+}
+
+.fruit.fruit3 {
+  background: black;
+  border-color: blue;
+}
+
+.wall {
+  background: brown;
+  border-color: yellow;
+}
+
+.gameover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 100px;
+  font-family: sans-serif;
+
+}
